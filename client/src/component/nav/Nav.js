@@ -3,7 +3,6 @@ import { useSelector } from 'react-redux';
 
 function Nav() {
   const {user} = useSelector(state=>state.userReducer)
-  console.log(user,'user')
   return (
     <nav>
     <div className="nav-wrapper">
