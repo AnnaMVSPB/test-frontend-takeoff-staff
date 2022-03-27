@@ -12,12 +12,12 @@ async function fetchJson(path, options = {}) {
 
 function* initUser(action) {
   try {
-    const response = yield call(fetchJson, `/user?last_name=${action.payload.last_name}`, {
+    const response = yield call(fetchJson, `/user?password=${action.payload.password}`, {
       method: 'GET',
     });
     yield put({ type: userAT.USER_INIT_LOGIN, payload: response });
   } catch (e) {
-    yield put(alert('Connection error'));
+    yield put(alert('Неверные данные для входа'));
   }
 }
 
