@@ -5,7 +5,7 @@ function Nav() {
   const {user} = useSelector(state=>state.userReducer)
   return (
     <nav>
-    <div className="nav-wrapper">
+    <div className="nav-wrapper teal lighten-2">
       {user.length ? <> <a className="brand-logo">Список контактов</a>
       <ul id="nav-mobile" className="right hide-on-med-and-down">
         <li><a>Выйти</a></li>
