@@ -21,3 +21,7 @@ export const changeContactAC = (payload) => ({
   payload,
 });
 
+export const searchAC = (payload) => ({
+  type: contactAT.CONTACT_SEARCH,
+  payload,
+});
