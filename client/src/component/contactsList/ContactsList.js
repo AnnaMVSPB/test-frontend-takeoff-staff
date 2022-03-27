@@ -8,7 +8,7 @@ function ContactsList() {
   const { contacts } = useSelector(state => state.contactReduser)
 
   return (
-    <div className="row">
+    <div className="row z-depth-4">
       <button onClick={() => setAddContact(true)} className="btn waves-effect waves-light" type="submit" name="action">
         Добавить контакт
         <i className="material-icons right">send</i>
