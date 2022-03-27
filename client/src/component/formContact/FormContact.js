@@ -28,7 +28,7 @@ function FormContact({ closeFormContact, contact }) {
           </div>
           <div className="input-field col s6">
             {!contact?.statusChange && <label for="input_text">Телефон</label>}
-            <input id="tel" type="tel" className="validate"defaultValue={contact?.tel} />
+            <input id="tel" type="tel" className="validate" pattern="[0-9]{3,10}" defaultValue={contact?.tel} />
           </div>
           <div className="input-field col s6">
           {!contact?.statusChange && <label for="input_text">@Почта</label>}
