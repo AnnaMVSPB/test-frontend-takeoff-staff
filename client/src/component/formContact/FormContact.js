@@ -1,40 +1,46 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { addContactAC } from '../../redux/actionCreators/contactAC'
+import { addContactAC, changeContactAC } from '../../redux/actionCreators/contactAC'
 
-function FormContact({closeFormContact}) {
+function FormContact({ closeFormContact, contact }) {
   const dispatch = useDispatch()
-  const addContacts =(e)=>{
-e.preventDefault();
-const data ={ 
-  name:e.target.name.value,
-  tel: e.target.tel.value,
-  email: e.target.email.value,
-}
-dispatch(addContactAC(data))
-closeFormContact()
+  const contacts = (e) => {
+    e.preventDefault();
+    const data = {
+      name: e.target.name.value,
+      tel: e.target.tel.value,
+      email: e.target.email.value,
+    }
+    if (contact?.statusChange) {
+      dispatch(changeContactAC({data,id:contact.id}))
+    }else{
+      dispatch(addContactAC(data))
+      closeFormContact()
+    }
   }
   return (
-    <div class="row">
-      <form class="col s12" onSubmit={addContacts}>
-        <div class="row">
-          <div class="input-field col s6">
-            <input id="name" type="text" class="validate" />
-            <label for="input_text">Имя</label>
+    <div className="row">
+      <form className="col s12" onSubmit={contacts}>
+        <div className="row">
+          <div className="input-field col s6">
+            {!contact?.statusChange && <label for="input_text">Имя</label>}
+            <input id="name" type="text" className="validate" defaultValue={contact?.name}/>
           </div>
-          <div class="input-field col s6">
-            <input id="tel" type="tel" class="validate" />
-            <label for="input_text">Телефон</label>
+          <div className="input-field col s6">
+            {!contact?.statusChange && <label for="input_text">Телефон</label>}
+            <input id="tel" type="tel" className="validate"defaultValue={contact?.tel} />
           </div>
-          <div class="input-field col s6">
-            <input id="email" type="email" class="validate" />
-            <label for="input_text">@Почта</label>
+          <div className="input-field col s6">
+          {!contact?.statusChange && <label for="input_text">@Почта</label>}
+            <input id="email" type="email" className="validate" defaultValue={contact?.email} />
           </div>
-          <div class="input-field col s6">
-
-            <button class="btn waves-effect waves-light" type="submit" name="action">Сохранить контакт
-              <i class="material-icons right">file_download</i>
-            </button>
+          <div className="input-field col s6">
+            {contact?.statusChange ? <button className="btn waves-effect waves-light" type="submit" name="action">Изменить контакт
+              <i className="material-icons right">file_download</i>
+            </button> 
+            : <button className="btn waves-effect waves-light" type="submit" name="action">Сохранить контакт
+              <i className="material-icons right">file_download</i>
+            </button>}
           </div>
         </div>
       </form>
