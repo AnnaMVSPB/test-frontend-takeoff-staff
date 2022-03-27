@@ -1,6 +1,6 @@
 # test-frontend-takeoff-staff
 
-Используемый стек для входа
+Используемый стек для входа: 
 
 React/ Redux/Saga
 Materialize
@@ -15,7 +15,7 @@ https://github.com/typicode/json-server
 
 
 
-Используемый стек для списка контактов
+Используемый стек для списка контактов: 
 React/ Redux/Saga 
 Materialize
 без привязки к бэкенду
