@@ -1,7 +1,7 @@
-import React,{useEffect} from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import {initUserAC} from '../../redux/actionCreators/userAC'
+import { initUserAC } from '../../redux/actionCreators/userAC'
 
 function Login() {
   const dispatch = useDispatch()
@@ -19,7 +19,7 @@ function Login() {
       last_name: e.target.last_name.value,
       password: e.target.password.value,
     }
-dispatch(initUserAC(data))
+    dispatch(initUserAC(data))
   }
   return (
 

@@ -9,16 +9,16 @@ import Nav from '../nav/Nav';
 function App() {
 
   return (
-    <div className="App">
+    
       <BrowserRouter>
         <Nav />
+        <div className="App">
         <Routes>
           <Route path='/' element={<Login />} />
           <Route path='/contactsList' element={<ContactsList />} />
         </Routes>
+        </div>
       </BrowserRouter>
-
-    </div>
   );
 }
 
